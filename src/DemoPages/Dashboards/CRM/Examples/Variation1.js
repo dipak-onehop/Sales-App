@@ -236,13 +236,13 @@ export default class CRMDashboard1 extends Component {
                 <Container fluid>
                     <Row xl="12" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}>
                         <Col md="5" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div style={{ width: '45%' }} >
+                            <div style={{ width: '48%' }} >
                                 <CardTitle>Start Date</CardTitle>
-                                <FormDatePicker1 />
+                                <FormDatePicker1 type={'start'}/>
                             </div>
-                            <div style={{ width: '45%' }}>
+                            <div style={{ width: '48%' }}>
                                 <CardTitle>End Date</CardTitle>
-                                <FormDatePicker1 />
+                                <FormDatePicker1 type={'end'}/>
                             </div>
                         </Col>
                     </Row>
@@ -459,7 +459,7 @@ export default class CRMDashboard1 extends Component {
                     <Row>
                         <Col md="12" lg="6" xl="5">
                             <Card style={{ marginBottom: '15px' }}>
-                                <CardHeader>
+                                <CardHeader className="card-header-tab">
                                     <div className="card-header-title">
                                         <i className="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
                                         Lead Report By Source

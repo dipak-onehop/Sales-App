@@ -17,7 +17,7 @@ class FormDatePicker1 extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            startDate: null
+            startDate: this.props.type == 'end' ? new Date() : new Date('08/01/2021')
         };
         this.handleChange = this.handleChange.bind(this);
     }
