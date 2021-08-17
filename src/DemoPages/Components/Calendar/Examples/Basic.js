@@ -18,7 +18,6 @@ export default class CalendarBasic extends Component {
     render() {
         return (
             <Fragment>
-                <Card className="" style={{height:'89%'}}>
                     <CardBody>
                         <BigCalendar
                             localizer={localizer}
@@ -30,7 +29,6 @@ export default class CalendarBasic extends Component {
                             onSelectEvent={this.onSelectEvent}
                         />
                     </CardBody>
-                </Card>
             </Fragment>
         )
     }

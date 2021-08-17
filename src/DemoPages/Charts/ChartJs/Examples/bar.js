@@ -24,8 +24,19 @@ class BarExample extends React.Component {
                     data={data}
                     width={600}
                     height={400}
+                    legend={false}
                     options={{
-                        maintainAspectRatio: true
+                        maintainAspectRatio: true,
+                        scales: {
+                            xAxes: [{
+                                barPercentage: 0.4
+                            }],
+                            yAxes: [{
+                              ticks: {
+                                beginAtZero: true
+                              }
+                            }]
+                          }
                     }}
                 />
             </div>

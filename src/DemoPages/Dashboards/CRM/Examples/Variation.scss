@@ -1,8 +1,25 @@
 .crm-dash-card-points {
     width: 100%;
-    margin-left: 5px;
-    margin-right: 7px;
+    margin-bottom: 10px;
+    padding-right: 25px;
+    padding-left: 12px;
   }
   .dashboard-btn-tbl{
     width: 135px;
   }
+
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .dashboard-card-container {
+    height: 100%;
+  }
+
+  .widget-heading {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+

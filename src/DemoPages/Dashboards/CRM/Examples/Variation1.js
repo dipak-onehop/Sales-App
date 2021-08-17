@@ -248,12 +248,12 @@ export default class CRMDashboard1 extends Component {
     return (
       <Fragment>
         <Container fluid>
-          <Row
+          <div
             xl="12"
             style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              marginBottom: "15px",
+              position: "absolute",
+              zIndex: 11000,
+              right: "2px",
             }}
           >
             {/* <Col
@@ -270,7 +270,7 @@ export default class CRMDashboard1 extends Component {
               </div>
             </Col> */}
             <UncontrolledButtonDropdown isOpen={this.state.isOpenFilter}>
-              <DropdownToggle className="mb-2" color="link">
+              <DropdownToggle className="mb-2 pr-1" color="link">
                 <i
                   className="pe-7s-filter"
                   style={{ fontSize: "25px" }}
@@ -285,7 +285,7 @@ export default class CRMDashboard1 extends Component {
               </DropdownToggle>
               <DropdownMenu
                 className="dropdown-menu-right dropdown-menu-rounded"
-                style={{ width: "500px" }}
+                style={{ width: "250px" }}
               >
                 <div
                   id="PopUpHeader"
@@ -302,7 +302,7 @@ export default class CRMDashboard1 extends Component {
                     alt="Close"
                     className="close-icon"
                     src={closeicon}
-                    style={{ height: "19px" }}
+                    style={{ height: "19px", cursor: "pointer" }}
                     onClick={() => {
                       this.setState({
                         isOpenFilter: false,
@@ -310,32 +310,26 @@ export default class CRMDashboard1 extends Component {
                     }}
                   />
                 </div>
-                <div className="dropdown-menu-header p-2">
-                  <div className="dropdown-menu-header-inner d-flex">
-                    <Row>
-                      <Col xl="6" lg="6" sm="12" x="6">
-                        <div>
-                          <CardTitle>Start Date</CardTitle>
-                          <FormDatePicker1 type={"start"} />
-                        </div>
-                      </Col>
-                      <Col xl="6" lg="6" sm="12" x="6">
-                        <div>
-                          <CardTitle>End Date</CardTitle>
-                          <FormDatePicker1
-                            type={"end"}
-                            popperPlacement="bottom-end"
-                          />
-                        </div>
-                      </Col>
-                    </Row>
+                <div className="dropdown-menu-header pl-3 pr-3">
+                  <div className="dropdown-menu-header-inner d-flex filter-container">
+                    <div>
+                      <CardTitle>Start Date</CardTitle>
+                      <FormDatePicker1 type={"start"} />
+                    </div>
+                    <div className="pt-3">
+                      <CardTitle>End Date</CardTitle>
+                      <FormDatePicker1
+                        type={"end"}
+                        popperPlacement="bottom-end"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="d-flex justify-content-end mb-2">
                   <Button
                     size="md"
                     color="success"
-                    style={{ fontSize: "16px", width: "105px" }}
+                    style={{ fontSize: "12", width: "80px" }}
                     onClick={() => {
                       this.setState({
                         isOpenFilter: false,
@@ -347,11 +341,15 @@ export default class CRMDashboard1 extends Component {
                 </div>
               </DropdownMenu>
             </UncontrolledButtonDropdown>
-          </Row>
-          <Row style={{ marginBottom: "20px" }}>
-            <div
+          </div>
+          <Row style={{ marginBottom: "10px" }}>
+            <Col
+              xs="12"
+              sm="6"
+              md="4"
+              lg="4"
+              xl="3"
               className="crm-dash-card-points"
-              style={{ minWidth: "225px", width: "225px", marginLeft: "0" }}
             >
               <ListGroup flush>
                 <ListGroupItem>
@@ -361,6 +359,7 @@ export default class CRMDashboard1 extends Component {
                         <div className="widget-content-left">
                           <div
                             className="widget-heading"
+                            title="Total Leads"
                             style={{ marginBottom: "12px" }}
                           >
                             Total Leads
@@ -392,10 +391,14 @@ export default class CRMDashboard1 extends Component {
                   </div>
                 </ListGroupItem>
               </ListGroup>
-            </div>
-            <div
+            </Col>
+            <Col
+              xs="12"
+              sm="6"
+              md="4"
+              lg="4"
+              xl="3"
               className="crm-dash-card-points"
-              style={{ minWidth: "238px", width: "238px" }}
             >
               <ListGroup flush>
                 <ListGroupItem>
@@ -405,6 +408,7 @@ export default class CRMDashboard1 extends Component {
                         <div className="widget-content-left">
                           <div
                             className="widget-heading"
+                            title="High Potential Leads"
                             style={{ marginBottom: "12px" }}
                           >
                             High Potential Leads
@@ -438,10 +442,14 @@ export default class CRMDashboard1 extends Component {
                   </div>
                 </ListGroupItem>
               </ListGroup>
-            </div>
-            <div
+            </Col>
+            <Col
+              xs="12"
+              sm="6"
+              md="4"
+              lg="4"
+              xl="3"
               className="crm-dash-card-points"
-              style={{ minWidth: "210px", width: "210px" }}
             >
               <ListGroup flush>
                 <ListGroupItem>
@@ -451,6 +459,7 @@ export default class CRMDashboard1 extends Component {
                         <div className="widget-content-left">
                           <div
                             className="widget-heading"
+                            title="Deals Won"
                             style={{ marginBottom: "12px" }}
                           >
                             Deals Won
@@ -482,10 +491,14 @@ export default class CRMDashboard1 extends Component {
                   </div>
                 </ListGroupItem>
               </ListGroup>
-            </div>
-            <div
+            </Col>
+            <Col
+              xs="12"
+              sm="6"
+              md="4"
+              lg="4"
+              xl="3"
               className="crm-dash-card-points"
-              style={{ minWidth: "260px", width: "260px" }}
             >
               <ListGroup flush>
                 <ListGroupItem>
@@ -495,6 +508,7 @@ export default class CRMDashboard1 extends Component {
                         <div className="widget-content-left">
                           <div
                             className="widget-heading"
+                            title="Total target"
                             style={{ marginBottom: "12px" }}
                           >
                             Total target
@@ -528,7 +542,7 @@ export default class CRMDashboard1 extends Component {
                   </div>
                 </ListGroupItem>
               </ListGroup>
-            </div>
+            </Col>
           </Row>
           {/* <Row style={{ display: "flex" }}>
             <Col md="6" xl="4">
@@ -585,15 +599,17 @@ export default class CRMDashboard1 extends Component {
               </Card>
             </Col>
             <Col md="12" lg="6" xl="7">
-              <CardHeader className="card-header-tab">
-                <div className="card-header-title">
-                  <i className="header-icon lnr-rocket icon-gradient bg-tempting-azure">
-                    {" "}
-                  </i>
-                  Monthly calendar and task
-                </div>
-              </CardHeader>
-              <CalendarBasic />
+              <Card className="dashboard-card-container">
+                <CardHeader className="card-header-tab">
+                  <div className="card-header-title">
+                    <i className="header-icon lnr-rocket icon-gradient bg-tempting-azure">
+                      {" "}
+                    </i>
+                    Monthly calendar and task
+                  </div>
+                </CardHeader>
+                <CalendarBasic />
+              </Card>
             </Col>
           </Row>
           <Row className="mt-3">
@@ -607,15 +623,15 @@ export default class CRMDashboard1 extends Component {
                                 </CardBody>
                             </Card>
                         </Col> */}
-            <Col md="6">
-              <Card className="">
+            <Col md="12" lg="6" xl="5">
+              <Card className="dashboard-card-container">
                 <CardBody>
                   <CardTitle>Payment Status</CardTitle>
                   <Bar />
                 </CardBody>
               </Card>
             </Col>
-            <Col md="6">
+            <Col md="12" lg="6" xl="7">
               <Card className="">
                 <CardBody>
                   <CardTitle>Revenue by Product SKU</CardTitle>

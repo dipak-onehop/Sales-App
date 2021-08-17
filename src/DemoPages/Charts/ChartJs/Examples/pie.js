@@ -2,7 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 
 const data = {
-  labels: ["Combo Pack", "Renewal Pack", "Loyalty Pack", "Subscription Pack"],
+  labels: ["Combo Pack", "Renewal Pack", "Loyalty Pack", "Subscription Pack", "SMS Pack"],
   datasets: [
     {
       data: [8, 3, 6, 6, 7],

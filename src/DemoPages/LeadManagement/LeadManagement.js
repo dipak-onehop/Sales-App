@@ -50,30 +50,54 @@ import {
   ChildButton,
 } from "react-floating-button-menu";
 import { leadTableData } from "./leaddata";
+import AddEditLead from "./AddEditLead/AddEditLead";
+import { connect } from "react-redux";
 
-export default class LeadManagement extends Component {
+class LeadManagement extends Component {
   constructor(props) {
     super(props);
-    const data=leadTableData.filter(x=> x.currentStatus === "New");
+    const data = leadTableData.filter((x) => x.currentStatus === "New");
     this.state = {
       tableData: data,
       activeButton: "newLeads",
       startDate: null,
       endDate: null,
-      leadTableDataLength:{
-        newLeadsData:0,
-        InterestedData:0,
-        NegotiationData:0,
-        ClosedData:0,
-        contracted:0
-      }
+      leadTableDataLength: {
+        newLeadsData: 0,
+        InterestedData: 0,
+        NegotiationData: 0,
+        ClosedData: 0,
+        contracted: 0,
+      },
+      isOpen: false,
     };
-    this.state.leadTableDataLength.newLeadsData=leadTableData.filter(x=> x.currentStatus === "New").length;
-    this.state.leadTableDataLength.InterestedData=leadTableData.filter(x=> x.currentStatus === "Interested").length;
-    this.state.leadTableDataLength.NegotiationData=leadTableData.filter(x=> x.currentStatus === "Negotiation").length;
-    this.state.leadTableDataLength.ClosedData=leadTableData.filter(x=> x.currentStatus === "Close Lead").length;
-    this.state.leadTableDataLength.contracted=leadTableData.filter(x=> x.currentStatus === "Contacted").length;
+    this.state.leadTableDataLength.newLeadsData = leadTableData.filter(
+      (x) => x.currentStatus === "New"
+    ).length;
+    this.state.leadTableDataLength.InterestedData = leadTableData.filter(
+      (x) => x.currentStatus === "Interested"
+    ).length;
+    this.state.leadTableDataLength.NegotiationData = leadTableData.filter(
+      (x) => x.currentStatus === "Negotiation"
+    ).length;
+    this.state.leadTableDataLength.ClosedData = leadTableData.filter(
+      (x) => x.currentStatus === "Close Lead"
+    ).length;
+    this.state.leadTableDataLength.contracted = leadTableData.filter(
+      (x) => x.currentStatus === "Contacted"
+    ).length;
   }
+
+  // Function to handle Add lead button click
+  hanldeAddLeadClick = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  // Function to handle final submit of Add new link
+  handlePrimaryButtonClickInAddLead = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
   handleChange = ({ startDate, endDate }) => {
     startDate = startDate || this.state.startDate;
     endDate = endDate || this.state.endDate;
@@ -92,34 +116,40 @@ export default class LeadManagement extends Component {
   changeTableContent(type) {
     console.log("type", type);
     if (type == "newLeads") {
-      const data=leadTableData.filter(x=> x.currentStatus === "New");
+      const data = leadTableData.filter((x) => x.currentStatus === "New");
       this.setState({ tableData: data, activeButton: type });
     }
     if (type == "contactedLeads") {
-      const data=leadTableData.filter(x=> x.currentStatus === "Contacted");
+      const data = leadTableData.filter((x) => x.currentStatus === "Contacted");
       this.setState({ tableData: data, activeButton: type });
     }
     if (type == "interestedLeads") {
-      const data=leadTableData.filter(x=> x.currentStatus === "Interested");
+      const data = leadTableData.filter(
+        (x) => x.currentStatus === "Interested"
+      );
       this.setState({ tableData: data, activeButton: type });
     }
     if (type == "negotiationLeads") {
-      const data=leadTableData.filter(x=> x.currentStatus === "Negotiation");
+      const data = leadTableData.filter(
+        (x) => x.currentStatus === "Negotiation"
+      );
       this.setState({ tableData: data, activeButton: type });
     }
     if (type == "closedLeads") {
-      const data=leadTableData.filter(x=> x.currentStatus === "Close Lead");
+      const data = leadTableData.filter(
+        (x) => x.currentStatus === "Close Lead"
+      );
       this.setState({ tableData: data, activeButton: type });
     }
   }
 
-  openCloseFloat=(i)=>{
-    let {tableData}=this.state;
-    tableData[i].isOpen=!tableData[i].isOpen;
-    this.setState({ tableData })
-  }
+  openCloseFloat = (i) => {
+    let { tableData } = this.state;
+    tableData[i].isOpen = !tableData[i].isOpen;
+    this.setState({ tableData });
+  };
   render() {
-    const { activeButton,leadTableDataLength } = this.state;
+    const { activeButton, leadTableDataLength } = this.state;
     return (
       <Fragment>
         <Container fluid>
@@ -262,11 +292,9 @@ export default class LeadManagement extends Component {
                             All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           </DropdownToggle>
                           <DropdownMenu>
-                            <DropdownItem>Ahmedabad</DropdownItem>
-                            <DropdownItem>Surat</DropdownItem>
-                            <DropdownItem>Vadodara</DropdownItem>
-                            <DropdownItem>Rajkot</DropdownItem>
-                            <DropdownItem>Bhavnagar</DropdownItem>
+                            {this.props.cities.map((city) => (
+                              <DropdownItem>{city.name}</DropdownItem>
+                            ))}
                           </DropdownMenu>
                         </UncontrolledButtonDropdown>
                       </div>
@@ -357,6 +385,7 @@ export default class LeadManagement extends Component {
                         outline
                         className="mb-2 mr-2 btn-transition mt-auto mb-auto mr-3"
                         color="primary"
+                        onClick={this.hanldeAddLeadClick}
                       >
                         Add Leads
                       </Button>
@@ -415,7 +444,7 @@ export default class LeadManagement extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.tableData.map((data,i) => (
+                    {this.state.tableData.map((data, i) => (
                       <tr>
                         <td>{data.ownerName}</td>
                         <td>{data.mobile}</td>
@@ -459,32 +488,36 @@ export default class LeadManagement extends Component {
                                 // iconResting={<i icon="pe-7s-umbrella icon-gradient bg-sunny-morning"/>}
                                 // iconActive={<span>close</span>}
                                 backgroundColor="black"
-                                onClick={() =>this.openCloseFloat(i)}
+                                onClick={() => this.openCloseFloat(i)}
                                 size={30}
-                                className={data.isOpen?"float-close-btn":"float-share-btn"}
+                                className={
+                                  data.isOpen
+                                    ? "float-close-btn"
+                                    : "float-share-btn"
+                                }
                               />
                               {
                                 <ChildButton
-                                background="white"
-                                className="whatsapp-float"
-                                size={25}
-                              />
+                                  background="white"
+                                  className="whatsapp-float"
+                                  size={25}
+                                />
                               }
-                               <ChildButton
+                              <ChildButton
                                 background="white"
                                 className="email-float"
                                 size={25}
-                                />
-                                   <ChildButton
+                              />
+                              <ChildButton
                                 background="white"
                                 className="sms-float"
                                 size={25}
-                                />
-                                   <ChildButton
+                              />
+                              <ChildButton
                                 background="white"
                                 className="call-float"
                                 size={25}
-                                />
+                              />
                             </FloatingMenu>
                           </div>
                         </td>
@@ -496,7 +529,18 @@ export default class LeadManagement extends Component {
             </Col>
           </Row>
         </Container>
+        <AddEditLead
+          toggle={this.hanldeAddLeadClick}
+          handlePrimaryButtonClick={this.handlePrimaryButtonClickInAddLead}
+          isOpen={this.state.isOpen}
+        />
       </Fragment>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  cities: state.CommonOptions.cities,
+});
+
+export default connect(mapStateToProps, null)(LeadManagement);
