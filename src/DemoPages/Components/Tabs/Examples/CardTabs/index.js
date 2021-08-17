@@ -292,6 +292,7 @@ export default class CardTabsExample extends React.Component {
                                     </CardFooter>
                                 </Card>
                             </Col>
+                            
                             <Col md="6">
                                 <Card tabs="true" className="mb-3">
                                     <CardHeader className="card-header-tab">

@@ -449,9 +449,9 @@ export const NewNav = [
         to: '#/dashboards/crm',
     },
     {
-        icon: 'pe-7s-graph',
+        icon: 'pe-7s-display2',
         label: 'Lead Management',
-        to: '#/dashboards/lead',
+        to: '#/charts/lead-management',
     },
     {
         icon: 'pe-7s-gleam',
@@ -471,7 +471,7 @@ export const NewNav = [
     {
         icon: 'pe-7s-diamond',
         label: 'Order Management',
-        to: '#/charts/sparklines-2',
+        to: '#/charts/order-management',
     },
     {
         icon: 'pe-7s-light',
@@ -484,7 +484,7 @@ export const NewNav = [
         to: '#/charts/sparklines-2',
     },
     {
-        icon: 'pe-7s-display2',
+        icon: 'pe-7s-graph',
         label: 'Template & Document Library',
         to: '#/charts/sparklines-2',
     },

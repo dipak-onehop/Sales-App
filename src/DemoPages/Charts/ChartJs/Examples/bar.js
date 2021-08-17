@@ -6,15 +6,11 @@ const data = {
     datasets: [
         {
             label: '',
-            backgroundColor: ['#db3545',
-                '#28a745',
-                '#007bff'],
-            borderColor: ['#db3545',
-                '#28a745',
-                '#007bff'],
+            backgroundColor: ['#db3545','#28a745','#007bff'],
+            borderColor: ['#db3545','#28a745','#007bff'],
             borderWidth: 1,
             borderCapStyle: 'round',
-            data: [65, 67, 70]
+            data: [114000, 62000, 52000]
         }
     ]
 };

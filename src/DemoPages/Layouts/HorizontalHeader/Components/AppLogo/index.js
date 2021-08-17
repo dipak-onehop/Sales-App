@@ -65,7 +65,7 @@ class HeaderLogo extends React.Component {
             <Fragment>
                 <div className="app-header__logo">
                     <div className="logo-src">
-                        <img height='40' width='140' src='/static/media/logo-inverse.8a9178dc.png'/>
+                        <img height='40' width='140' src='/static/media/logo-inverse.8a9178dc.png' style={{objectFit:'contain'}}/>
                     </div>
                 </div>
 

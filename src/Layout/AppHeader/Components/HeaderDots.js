@@ -34,6 +34,14 @@ import ChatExample from './TabsContent/ChatExample';
 import TimelineEx from './TabsContent/TimelineExample';
 import SysErrEx from './TabsContent/SystemExample';
 
+import Hamburger from 'react-hamburgers';
+
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
+import Drawer from 'react-motion-drawer';
+
+import DrawerBigExample from './TabsContent/DrawerBigExample';
+import './HeaderDots.scss';
 const data = [
     {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
     {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
@@ -50,16 +58,32 @@ const data = [
 ];
 
 const tabsContent = [
+    // {
+    //     title: 'Messages',
+    //     content: <ChatExample/>
+    // },
+    // {
+    //     title: 'Events',
+    //     content: <TimelineEx/>
+    // },
+    // {
+    //     title: 'System Errors',
+    //     content: <SysErrEx/>
+    // },
     {
-        title: 'Messages',
+        title: 'Meeting Reminder Notifications',
         content: <ChatExample/>
     },
     {
-        title: 'Events',
+        title: 'Renewal Reminder Notification',
         content: <TimelineEx/>
     },
     {
-        title: 'System Errors',
+        title: 'Anniversary Notification',
+        content: <SysErrEx/>
+    },
+    {
+        title: 'Birthday Notification',
         content: <SysErrEx/>
     },
 ];
@@ -77,14 +101,53 @@ class HeaderDots extends React.Component {
         super(props);
         this.state = {
             active: false,
+            openLeft: false,
+            openRight: false,
+            relativeWidth: false,
+            width: 700,
+            noTouchOpen: false,
+            noTouchClose: false,
         };
 
     }
 
     render() {
+        const {
+            openRight,
+        } = this.state;
+
         return (
             <Fragment>
                 <div className="header-dots">
+              
+                <Drawer
+                    right
+                    className="drawer-content-wrapper notification-drawer-content-wrapper p-0"
+                    width={640}
+                    open={openRight}
+                    onChange={open => this.setState({openRight: open})}
+                    noTouchOpen={false}
+                    noTouchClose={false}
+                >
+                    <PerfectScrollbar>
+                    <div className="drawer-nav-btn">
+                        <Hamburger
+                            active={openRight}
+                            type="elastic"
+                            onClick={() => this.setState({openRight: false, openLeft: false})}
+                        />
+                    </div>
+                    <DrawerBigExample/>
+                    </PerfectScrollbar>
+                </Drawer>
+
+                {/* <div className="header-btn-lg">
+                    <Hamburger
+                        active={openRight}
+                        type="elastic"
+                        onClick={() => this.setState({openRight: !openRight, openLeft: false})}
+                    />
+                </div> */}
                     {/* <UncontrolledDropdown>
                         <DropdownToggle className="p-0 mr-2" color="link">
                             <div className="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -169,14 +232,14 @@ class HeaderDots extends React.Component {
                         </DropdownMenu>
                     </UncontrolledDropdown> */}
                     <UncontrolledDropdown>
-                        <DropdownToggle className="p-0 mr-2" color="link">
+                        <DropdownToggle className="p-0 mr-2" color="link" onClick={() => this.setState({openRight: !openRight, openLeft: false})}>
                             <div className="icon-wrapper icon-wrapper-alt rounded-circle">
                                 <div className="icon-wrapper-bg bg-danger"/>
                                 <Ionicon beat={true} color="#d92550" fontSize="23px" icon="md-notifications-outline"/>
                                 <div className="badge badge-dot badge-dot-sm badge-danger">Notifications</div>
                             </div>
                         </DropdownToggle>
-                        <DropdownMenu right className="dropdown-menu-xl rm-pointers">
+                        {/* <DropdownMenu right className="dropdown-menu-xl rm-pointers">
                             <div className="dropdown-menu-header mb-0">
                                 <div className="dropdown-menu-header-inner bg-deep-blue">
                                     <div className="menu-header-image opacity-1"
@@ -200,7 +263,7 @@ class HeaderDots extends React.Component {
                                     </Button>
                                 </NavItem>
                             </Nav>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
                     </UncontrolledDropdown>
                     {/* <UncontrolledDropdown>
                         <DropdownToggle className="p-0 mr-2" color="link">
