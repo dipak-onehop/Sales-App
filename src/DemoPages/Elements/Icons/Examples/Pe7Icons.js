@@ -65,10 +65,10 @@ const Pe7IconsExamples = () => (
                             <CardBody>
                                 <CardTitle>Gradient Icons</CardTitle>
                                 <div className="font-icon-wrapper font-icon-lg">
-                                    <i className="pe-7s-filter icon-gradient bg-warm-flame"> </i>
+                                    <i className="pe-7s-export icon-gradient bg-warm-flame"> </i>
                                 </div>
                                 <div className="font-icon-wrapper font-icon-lg">
-                                    <i className="pe-7s-help1 icon-gradient bg-night-fade"> </i>
+                                    <i className="pe-7s-import icon-gradient bg-night-fade"> </i>
                                 </div>
                                 <div className="font-icon-wrapper font-icon-lg">
                                     <i className="pe-7s-moon icon-gradient bg-sunny-morning"> </i>

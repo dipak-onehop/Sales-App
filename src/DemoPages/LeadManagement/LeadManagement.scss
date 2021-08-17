@@ -1,0 +1,125 @@
+.lead-tbl-buttons {
+  min-height: 50px;
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.55);
+  height: 74%;
+  width: 100%;
+}
+.lead-tbl-buttons button {
+  height: 60px;
+  margin: auto;
+  width: 130px;
+}
+.import-export-icon-lead {
+  cursor: pointer;
+  margin: auto;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+.form-control {
+  font-size: 14px;
+}
+.lead-flter-wrapper .UncontrolledButtonDropdown button {
+  display: flex;
+  justify-content: space-between;
+  min-width: 125px;
+}
+.lead-flter-wrapper .dropdown-toggle::after {
+  position: relative;
+  top: 9px;
+}
+
+.floating-menu {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  height: 42px;
+  text-align: right;
+  /*transition: height 250ms ease-in-out;*/
+}
+
+.floating-menu.open {
+  height: 150px;
+  overflow: hidden;
+}
+
+.floating-menu.open .floating-menu-item {
+  margin-top: 8px;
+}
+
+.floating-menu-item label {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.floating-menu.open .floating-menu-item label {
+  opacity: 0.4;
+}
+
+.floating-menu-icon {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  vertical-align: middle;
+  background: #e53935;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.floating-menu-icon .material-icons {
+  font-size: 32px;
+  color: #fff;
+  vertical-align: middle;
+}
+.whatsapp-float {
+  background-image: url("../../../src/assets/utils/images/WhatsApp.png") !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  position: absolute;
+  margin-right: 70px !important;
+}
+.email-float {
+	background-image: url("../../../src/assets/utils/images/email-icon.png") !important;
+	background-position: center !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	position: absolute;
+	margin-right: 139px !important;
+  }
+  .sms-float {
+	background-image: url("../../../src/assets/utils/images/sms-icon.png") !important;
+	background-position: center !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	position: absolute;
+	margin-right: 209px !important;
+  }
+  .call-float {
+	background-image: url("../../../src/assets/utils/images/call-icon.png") !important;
+	background-position: center !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	position: absolute;
+	margin-right: 283px !important;
+  }
+.float-share-btn{
+	background-image: url("../../../src/assets/utils/images/share-icon.png") !important;
+	background-position: center !important;
+	background-size: contain !important;
+	background-repeat: no-repeat;
+}
+.float-close-btn{
+	background-image: url("../../../src/assets/utils/images/close-round.png") !important;
+	background-position: center !important;
+	background-size: contain !important;
+	background-repeat: no-repeat;
+}

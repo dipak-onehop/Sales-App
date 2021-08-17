@@ -48,7 +48,7 @@ class HeaderLogo extends React.Component {
             <Fragment>
                 <div className="app-header__logo">
                     <div className="logo-src">
-                        <img height='30' width='120' src='/static/media/logo-inverse.8a9178dc.png'/>
+                        <img height='30' width='120' src='/static/media/logo-inverse.8a9178dc.png' style={{objectFit:'contain'}}/>
                     </div>
                     <div className="header__pane ml-auto">
                         <div onClick={this.toggleEnableClosedSidebar}>

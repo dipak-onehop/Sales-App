@@ -18,6 +18,8 @@ import AppFooter from '../../Layout/AppFooter/';
 // Theme Options
 
 import ThemeOptions from '../../Layout/ThemeOptions/';
+import OrderManagement from '../OrderManagement/OrderManagement';
+import LeadManagement from '../LeadManagement/LeadManagement';
 
 const Charts = ({match}) => (
     <Fragment>
@@ -35,6 +37,8 @@ const Charts = ({match}) => (
                     <Route path={`${match.url}/chartjs`} component={ChartsChartJs}/>
                     <Route path={`${match.url}/gauges`} component={ChartsGauges}/>
                     <Route path={`${match.url}/apexcharts`} component={ApexCharts}/>
+                    <Route path={`${match.url}/order-management`} component={OrderManagement}/>
+                    <Route path={`${match.url}/lead-management`} component={LeadManagement}/>
 
                 </div>
                 <AppFooter/>

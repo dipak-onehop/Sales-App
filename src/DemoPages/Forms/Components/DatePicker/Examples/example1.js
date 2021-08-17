@@ -29,6 +29,7 @@ class FormDatePicker1 extends React.Component {
     }
 
     render() {
+        const {popperPlacement='auto'}=this.props;
         return (
             <Fragment>
                 <InputGroup>
@@ -40,6 +41,7 @@ class FormDatePicker1 extends React.Component {
                     <DatePicker className="form-control"
                                 selected={this.state.startDate}
                                 onChange={this.handleChange}
+                                popperPlacement={popperPlacement?"bottom-end":"auto"}
                     />
                 </InputGroup>
             </Fragment>
