@@ -37,8 +37,8 @@ class HeaderRightDrawer extends React.Component {
                     width={700}
                     open={openRight}
                     onChange={open => this.setState({openRight: open})}
-                    noTouchOpen={false}
-                    noTouchClose={false}
+                    noTouchOpen
+                    noTouchClose
                 >
                     <PerfectScrollbar>
                     <div className="drawer-nav-btn">

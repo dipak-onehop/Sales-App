@@ -1,0 +1,5 @@
+@import "../../assets/common/styles.scss";
+.order-managment-table-container {
+    @include custom-table-container();
+    font-size: 14px;
+  }

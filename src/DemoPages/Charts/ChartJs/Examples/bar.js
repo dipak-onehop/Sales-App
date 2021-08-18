@@ -23,7 +23,7 @@ class BarExample extends React.Component {
                 <Bar
                     data={data}
                     width={600}
-                    height={400}
+                    height={550}
                     legend={false}
                     options={{
                         maintainAspectRatio: true,
