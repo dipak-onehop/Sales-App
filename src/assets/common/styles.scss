@@ -1,0 +1,31 @@
+.table-search-input {
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+  }
+  .table-flter-wrapper .UncontrolledButtonDropdown button {
+    display: flex;
+    justify-content: space-between;
+    min-width: 125px;
+  }
+  .table-flter-wrapper .dropdown-toggle::after {
+    position: relative;
+    top: 9px;
+  }
+  
+  @mixin custom-table-container {
+    font-size: 13px;
+    .rt-resizable-header-content {
+      color: #212529;
+    }
+    .custom-table {
+      overflow-wrap: anywhere;
+      .action-button {
+        width: inherit;
+        justify-content: center;
+        display: flex;
+      }
+    }
+  }
+  
